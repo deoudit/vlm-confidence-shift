@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper."
+title: "Trust the Ranking, Not the Threshold: Selective Prediction in Vision-Language Models Under Distribution Shift"
+authors:
+  - family-names: Deo
+    given-names: Udit
+    affiliation: Indian Institute of Technology Roorkee
+  - family-names: Raman
+    given-names: Balasubramanian
+    affiliation: Indian Institute of Technology Roorkee
+license: MIT

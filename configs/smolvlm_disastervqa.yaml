@@ -1,0 +1,23 @@
+# HuggingFaceTB/SmolVLM-Instruct on DisasterVQA (single-answer MC)
+model:
+  name: "HuggingFaceTB/SmolVLM-Instruct"
+  dtype: "float16"
+  device: "cuda:0"
+  attn_implementation: "eager"   # required for output_attentions
+  trust_remote_code: false
+  answer_prefix: " Answer:"
+data:
+  benchmark: "disastervqa"
+  mmbench_tsv: "data/MMBench_DEV_EN.tsv"
+  perception_only: true
+  n_questions: 2000   # all 1,434 single-answer items are used
+  seed: 0
+corruptions:
+  types: []
+  severities: []  # naturally degraded images: clean condition only
+signals:
+  logit_lens_last_L: 8
+  attention_layers: [-1, -2]
+paths:
+  features_dir: "outputs/features_smolvlm_instruct_disastervqa"
+  results_dir: "outputs/results_smolvlm_instruct_disastervqa"

@@ -1,0 +1,22 @@
+# Qwen/Qwen2.5-VL-7B-Instruct on MMBench-dev perception
+# Run on an RTX A5000 (24 GB).
+model:
+  name: "Qwen/Qwen2.5-VL-7B-Instruct"
+  dtype: "bfloat16"
+  device: "cuda:0"
+  attn_implementation: "eager"   # required for output_attentions
+  trust_remote_code: false
+data:
+  mmbench_tsv: "data/MMBench_DEV_EN.tsv"
+  perception_only: true
+  n_questions: 2000
+  seed: 0
+corruptions:
+  types: ["fog", "snow", "defocus_blur", "brightness"]
+  severities: [1, 2, 3, 4, 5]
+signals:
+  logit_lens_last_L: 8
+  attention_layers: [-1, -2]
+paths:
+  features_dir: "outputs/features_qwen25vl_7b"
+  results_dir: "outputs/results_qwen25vl_7b"

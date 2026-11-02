@@ -1,0 +1,6 @@
+# Enough to reproduce every table and figure from the released signal tables (CPU only).
+numpy
+pandas
+pyarrow
+scikit-learn
+matplotlib

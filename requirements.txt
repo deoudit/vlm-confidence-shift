@@ -1,0 +1,22 @@
+# Full environment (model inference + analysis). Python 3.11.
+# Install the torch build matching your CUDA driver (see pytorch.org) first.
+torch>=2.3
+torchvision
+transformers>=4.49
+accelerate
+qwen-vl-utils
+safetensors
+timm>=1.0.0
+sentencepiece
+datasets            # A-OKVQA and DisasterVQA loaders
+pillow
+numpy
+pandas
+pyarrow
+setuptools<81       # imagecorruptions imports pkg_resources
+imagecorruptions==1.1.2
+opencv-python
+scikit-image
+scikit-learn
+matplotlib
+pyyaml

@@ -1,0 +1,23 @@
+# OpenGVLab/InternVL3-2B-hf on MMBench-dev perception
+# float32 on Pascal; max_patches caps InternVL dynamic tiling (default 12).
+model:
+  name: "OpenGVLab/InternVL3-2B-hf"
+  dtype: "float32"
+  device: "cuda:0"
+  attn_implementation: "eager"   # required for output_attentions
+  trust_remote_code: false
+  max_patches: 6
+data:
+  mmbench_tsv: "data/MMBench_DEV_EN.tsv"
+  perception_only: true
+  n_questions: 2000
+  seed: 0
+corruptions:
+  types: ["fog", "snow", "defocus_blur", "brightness"]
+  severities: [1, 2, 3, 4, 5]
+signals:
+  logit_lens_last_L: 8
+  attention_layers: [-1, -2]
+paths:
+  features_dir: "outputs/features_internvl3_2b"
+  results_dir: "outputs/results_internvl3_2b"

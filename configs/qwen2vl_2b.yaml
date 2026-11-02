@@ -1,0 +1,22 @@
+# Qwen/Qwen2-VL-2B-Instruct on MMBench-dev perception
+# float32: float16 produced NaN activations on our Pascal (P5000) GPU.
+model:
+  name: "Qwen/Qwen2-VL-2B-Instruct"
+  dtype: "float32"
+  device: "cuda:0"
+  attn_implementation: "eager"   # required for output_attentions
+  trust_remote_code: false
+data:
+  mmbench_tsv: "data/MMBench_DEV_EN.tsv"
+  perception_only: true
+  n_questions: 2000
+  seed: 0
+corruptions:
+  types: ["fog", "snow", "defocus_blur", "brightness"]
+  severities: [1, 2, 3, 4, 5]
+signals:
+  logit_lens_last_L: 8
+  attention_layers: [-1, -2]
+paths:
+  features_dir: "outputs/features_qwen2vl_2b"
+  results_dir: "outputs/results_qwen2vl_2b"

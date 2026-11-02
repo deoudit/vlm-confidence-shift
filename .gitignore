@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+data/*.tsv
+data/aokvqa_val/
+outputs/**/*_hidden.npz
+outputs/results_*/
+results/
+figures/
